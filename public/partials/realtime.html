@@ -1,0 +1,42 @@
+<div class="realtime">
+
+    <div class="alertsPanel">
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
+
+    <h2 style="position: absolute; right: 2%; top:50px">Room: <span style="font-size: x-large; font-weight: 300;">{{roomText}}</span></h2>
+
+    <div id="myCamera">
+        <h3 style="color: #ffffff" style="display: none;">{{myVideoText}}</h3>
+        <video id="myVideo" autoplay muted></video>
+    </div>
+
+    <div id="hisCamera">
+        <video id="hisVideo" autoplay></video>
+        <h3 style="color: #ffffff" style="display: none;">{{hisVideoText}}</h3>
+    </div>
+
+    <div class="control_btns_panel" style="display: none;">
+        <div class="control_btns">
+            <div class="control_btns_text">Start</div>
+        </div>
+        <div class="control_btns">
+            <div class="control_btns_text">Call</div>
+        </div>
+        <div class="control_btns">
+            <div class="control_btns_text">HangUp</div>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3>{{promptMessage}}!</h3>
+        </div>
+
+        <input type="text" ng-model="answerMessage" style="margin-top: 10px; margin-left: 10px" autofocus="true">
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok(answerMessage)">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
